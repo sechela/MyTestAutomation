@@ -1,0 +1,30 @@
+name: Create HTML File
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Create folder and HTML file
+        run: |
+          mkdir -p web
+          echo "<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Page</title>
+</head>
+<body>
+  <h1>Hello from GitHub Actions!</h1>
+</body>
+</html>" > web/index.html
+
+      - name: Show file content
+        run: cat web/index.html
