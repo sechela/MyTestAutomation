@@ -28,5 +28,8 @@ jobs:
           </html>
           EOF
 
-      - name: Show file content
+      - name: List folder contents
+        run: ls -l web
+
+      - name: Show HTML file content
         run: cat web/index.html
